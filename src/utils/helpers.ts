@@ -1,9 +1,24 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 
-export const validateCookies = (context : GetServerSidePropsContext) => {
+export const validateCookies = (context: GetServerSidePropsContext) => {
     //The session id is obtained from the cookie of the request object
     const sessionID = context.req.cookies["connect.sid"];
     //Return an object with cookie if true else returns false
-    return sessionID ? ({Cookie : `connect.sid=${sessionID}`}) : false;
+    return sessionID ? ({ Cookie: `connect.sid=${sessionID}` }) : false;
+}
+
+export const getFirstLetters = (word: string) => {
+    //Splits the word on space
+    let splitWords = word.split(" ");
+    if(splitWords.length>2){
+        //If the word is big , Consider only first two spaces
+        splitWords = splitWords.splice(0,2);
+    }
+    //Filters the word for first letter
+    const firstLetters = splitWords.map((word) => {
+        return word[0];
+    })
+    //Returns an array with first letters of the word
+    return firstLetters;
 }
