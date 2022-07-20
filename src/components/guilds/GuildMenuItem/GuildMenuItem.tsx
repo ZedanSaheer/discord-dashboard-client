@@ -11,8 +11,6 @@ type Props = {
 
 
 export const GuildMenuItem: FC<Props> = ({ guild }) => {
-    console.log(getFirstLetters(guild.name));
-
     return <div className={styles.container}>
         {guild.icon ?
             <Image height={55} width={55} className={styles.image} src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`} alt={guild.name} />

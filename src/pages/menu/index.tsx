@@ -1,4 +1,5 @@
 import type { GetServerSidePropsContext, NextPage } from "next";
+import { useRouter } from "next/router";
 import { GuildMenuItem } from "../../components/guilds/GuildMenuItem/GuildMenuItem";
 import { fetchMutualGuilds } from "../../utils/api";
 import { Guild } from "../../utils/types";
@@ -9,12 +10,17 @@ type Props = {
 }
 
 const Menu: NextPage<Props> = ({ guilds }) => {
+    const router = useRouter();
 
     return <div className="page aligned-center">
         <div className={styles.container}>
             <h1 className={styles.title}>Please select a guild</h1>
             {guilds.map((guild) => {
-                return <GuildMenuItem guild={guild} />
+                return <div
+                    key={guild.id}
+                    onClick={() => router.push(`/dashboard/${guild.id}`)}>
+                    <GuildMenuItem guild={guild} />
+                </div>;
             })}
         </div>
     </div>;

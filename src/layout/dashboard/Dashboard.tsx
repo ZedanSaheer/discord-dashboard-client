@@ -1,11 +1,17 @@
 import { ReactElement } from "react";
+import { Appbar } from "../appbar/Appbar";
+import { Sidebar } from "../sidebar/Sidebar";
+import styles from "./index.module.scss";
 
-export const DashboardLayout = ({children}:{children:ReactElement}) => {
+export const DashboardLayout = ({ children }: { children: ReactElement }) => {
 
     return (
         <>
-            <nav>Hello World!</nav>
-            <>{children}</>
+            <Sidebar />
+            <div className={styles.layout}>
+                <Appbar />
+                <>{children}</>
+            </div>
         </>
     )
 }
