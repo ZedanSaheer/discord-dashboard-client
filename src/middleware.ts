@@ -1,5 +1,6 @@
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 import { params } from "../src/utils/customURLMiddleware"
+import { fetchValidGuilds } from "./utils/api";
 
 type Param = {
   locale: string;
@@ -31,11 +32,13 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
     //settings is the search
     console.log(route, id, page);
 
-
     const headers = validateMiddlewareCookies(req);
     if (!headers) {
       return NextResponse.redirect("/");
     }
 
+    const response = await fetchValidGuilds(id, headers);
+    return response.status === 200 ? NextResponse.next() : NextResponse.rewrite(new URL('/menu',req.url));
+    
   }
 }

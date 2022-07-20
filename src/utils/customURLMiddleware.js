@@ -3,6 +3,10 @@ const PATTERNS = [
         new URLPattern({ pathname: '/:locale/:slug/:search' }),
         ({ pathname }) => pathname.groups,
     ],
+    [
+        new URLPattern({ pathname: '/:locale/:slug' }),
+        ({ pathname }) => pathname.groups,
+    ]
 ]
 
 //The pattern above is the result of the function below
