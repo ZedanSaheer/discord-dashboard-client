@@ -1,4 +1,5 @@
-import type { GetServerSidePropsContext, NextPage } from "next";
+import type GetServerSidePropsContext from "next";
+import type NextPage from "next";
 import { useRouter } from "next/router";
 import { GuildMenuItem } from "../../components/guilds/GuildMenuItem/GuildMenuItem";
 import { fetchMutualGuilds } from "../../utils/api";

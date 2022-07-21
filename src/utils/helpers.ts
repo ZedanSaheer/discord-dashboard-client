@@ -22,3 +22,4 @@ export const getFirstLetters = (word: string) => {
     //Returns an array with first letters of the word
     return firstLetters;
 }
+ 

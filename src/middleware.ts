@@ -34,7 +34,7 @@ export async function middleware(req: NextRequest, ev: NextFetchEvent) {
 
     const headers = validateMiddlewareCookies(req);
     if (!headers) {
-      return NextResponse.redirect("/");
+      return NextResponse.rewrite(new URL('/menu',req.url));
     }
 
     const response = await fetchValidGuilds(id, headers);

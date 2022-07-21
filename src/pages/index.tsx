@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type NextPage from "next";
 import { FaDiscord } from "react-icons/fa"
 import styles from "../utils/styles/Home.module.scss"
 

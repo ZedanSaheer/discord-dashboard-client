@@ -1,4 +1,7 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import Head from "next/head"
+import Html from 'next/document'
+import Script from 'next/script'
+import Main from 'next/document'
 
 export default function Document() {
   return (
@@ -7,7 +10,7 @@ export default function Document() {
       <title>Discord Dashboard</title>
       <body>
         <Main />
-        <NextScript />
+        <Script />
       </body>
     </Html>
   )
