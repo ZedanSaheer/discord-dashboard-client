@@ -9,9 +9,9 @@ export const DashboardLayout = ({ children }: { children: ReactElement }) => {
 
     return (
         <>
-            <Sidebar />
+            <Sidebar guild={guild}/>
             <div className={styles.layout}>
-                <Appbar />
+                <Appbar guild={guild}/>
                 <>{children}</>
             </div>
         </>

@@ -1,5 +1,5 @@
 import { ReactElement, useContext, useEffect } from "react";
-import GetServerSidePropsContext from "next";
+import type GetServerSidePropsContext from "next";
 import { DashboardLayout } from "../../../layout/dashboard/Dashboard";
 import { Guild, NextPageWithLayout } from "../../../utils/types";
 import { fetchGuild } from "../../../utils/api";
@@ -20,7 +20,6 @@ const DashboardPage: NextPageWithLayout<Props> = ({ guild }) => {
     return (
         <div className="page">
             Dashboard Page
-            <p>{guild.name}</p>
         </div>
 
     )

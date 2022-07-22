@@ -30,7 +30,7 @@ const routes = [
 ]
 
 type Props = {
-    guild: Guild;
+    guild?: Guild;
 }
 
 export const Sidebar: FC<Props> = ({ guild }) => {
@@ -40,7 +40,7 @@ export const Sidebar: FC<Props> = ({ guild }) => {
     
 
     return <div className={styles.sidebar}>
-        {guild ?
+        {guild && guild.icon ?
             <Image height={55} width={55} className={styles.image} src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`} alt={guild.name} />
             :
             //Sets the custom avatar component if the guild icon is null or falsy value
