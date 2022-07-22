@@ -8,7 +8,6 @@ import { Guild } from "../../utils/types"
 import Image from "next/image"
 import { Avatar } from "../../components/guilds/GuildMenuItemAvatar/Avatar"
 import { FC } from "react"
-import { isGuildUndefined } from "../../utils/helpers"
 
 //Creating an array of object for routes
 const routes = [
@@ -37,7 +36,9 @@ export const Sidebar: FC<Props> = ({ guild }) => {
     const router = useRouter();
     const id = router.query.id;
 
-    
+    const handleLogout = () => {
+        router.push('http://localhost:5000/api/auth/logout')
+    }
 
     return <div className={styles.sidebar}>
         {guild && guild.icon ?
@@ -53,8 +54,8 @@ export const Sidebar: FC<Props> = ({ guild }) => {
                 </div>
             })}
         </div>
-        <div>
-            <RiLogoutCircleLine size={48} />
+        <div onClick={handleLogout}>
+            <RiLogoutCircleLine size={48}/>
         </div>
     </div>
 }
