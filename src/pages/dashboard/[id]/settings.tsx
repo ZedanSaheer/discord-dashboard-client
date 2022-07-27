@@ -15,6 +15,7 @@ const SettingsPage: NextPageWithLayout<Props> = ({guild}) => {
 }
 
 SettingsPage.getLayout = function (page: ReactElement) {
+      //Sets the layout for this page that includes the sidebar and appbar
     return <DashboardLayout>{page}</DashboardLayout>;
 }
 

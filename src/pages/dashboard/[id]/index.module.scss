@@ -1,0 +1,31 @@
+.index {
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.image_wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.info_text{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image {
+  border-radius: 50%;
+}

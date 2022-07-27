@@ -16,7 +16,7 @@ const Menu: NextPage<Props> = ({ guilds }) => {
     return <div className="page aligned-center">
         <div className={styles.container}>
             <h1 className={styles.title}>Please select a guild</h1>
-            {guilds.map((guild) => {
+            {guilds.map((guild : Guild) => {
                 return <div
                     key={guild.id}
                     onClick={() => router.push(`/dashboard/${guild.id}`)}>

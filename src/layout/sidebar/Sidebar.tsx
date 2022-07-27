@@ -5,9 +5,9 @@ import { RiLogoutCircleLine } from "react-icons/ri"
 import styles from "./index.module.scss"
 import { useRouter } from "next/router"
 import { Guild } from "../../utils/types"
-import Image from "next/image"
-import { Avatar } from "../../components/guilds/GuildMenuItemAvatar/Avatar"
 import { FC } from "react"
+import { ShowAvatar } from "../../components/UI/Avatar/ShowAvatar/ShowAvatar"
+import { logout } from "../../utils/api"
 
 //Creating an array of object for routes
 const routes = [
@@ -17,7 +17,7 @@ const routes = [
         getPath: (id: string) => `/dashboard/${id}`,
     },
     {
-        name: "commnads",
+        name: "channels",
         icon: <BsTerminal size={48} />,
         getPath: (id: string) => `/dashboard/${id}/commands`,
     },
@@ -37,16 +37,12 @@ export const Sidebar: FC<Props> = ({ guild }) => {
     const id = router.query.id;
 
     const handleLogout = () => {
-        router.push('http://localhost:5000/api/auth/logout')
+        const res = logout();
+        res.then(() => router.push("/"));
     }
 
     return <div className={styles.sidebar}>
-        {guild && guild.icon ?
-            <Image height={55} width={55} className={styles.image} src={`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`} alt={guild.name} />
-            :
-            //Sets the custom avatar component if the guild icon is null or falsy value
-            <Avatar name={"A B C"} sidebar/>
-        }
+        <ShowAvatar />
         <div>
             {routes.map((route) => {
                 return <div key={route.name} onClick={() => router.push(route.getPath(router.query?.id!.toString()))} className={styles.icons}>
@@ -55,7 +51,7 @@ export const Sidebar: FC<Props> = ({ guild }) => {
             })}
         </div>
         <div onClick={handleLogout}>
-            <RiLogoutCircleLine size={48}/>
+            <RiLogoutCircleLine size={48} />
         </div>
     </div>
 }
