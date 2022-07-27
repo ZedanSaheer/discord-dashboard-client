@@ -10,7 +10,7 @@ type Props = {
 
 const SettingsPage: NextPageWithLayout<Props> = ({guild}) => {
     return (
-        <div className="page">Settings Page</div>
+        <h1 className="page">Settings Page</h1>
     )
 }
 

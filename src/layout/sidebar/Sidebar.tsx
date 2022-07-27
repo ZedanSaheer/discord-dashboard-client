@@ -19,7 +19,7 @@ const routes = [
     {
         name: "channels",
         icon: <BsTerminal size={48} />,
-        getPath: (id: string) => `/dashboard/${id}/commands`,
+        getPath: (id: string) => `/dashboard/${id}/channels`,
     },
     {
         name: "settings",
@@ -34,7 +34,7 @@ type Props = {
 
 export const Sidebar: FC<Props> = ({ guild }) => {
     const router = useRouter();
-    const id = router.query.id;
+    const id = router.query?.id
 
     const handleLogout = () => {
         const res = logout();
@@ -42,10 +42,10 @@ export const Sidebar: FC<Props> = ({ guild }) => {
     }
 
     return <div className={styles.sidebar}>
-        <ShowAvatar />
+        <ShowAvatar className="sidebar"/>
         <div>
             {routes.map((route) => {
-                return <div key={route.name} onClick={() => router.push(route.getPath(router.query?.id!.toString()))} className={styles.icons}>
+                return <div key={route.name} onClick={() => router.push(route.getPath(id!.toString()))} className={styles.icons}>
                     {route.icon}
                 </div>
             })}

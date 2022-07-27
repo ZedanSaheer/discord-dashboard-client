@@ -5,8 +5,12 @@ import { Guild } from '../../../../utils/types'
 import { Avatar } from '../Avatar'
 import { GuildContext } from '../../../../utils/contexts/GuildContext'
 
-export const ShowAvatar: FC = () => {
-    const {guild} = useContext(GuildContext);
+type Props = {
+    className: "menu" | "dashboard" | "sidebar"
+}
+
+export const ShowAvatar: FC<Props> = ({ className }) => {
+    const { guild } = useContext(GuildContext);
     //Returns avatar if guild exists
     if (guild && guild.icon) {
         return <Image
@@ -18,6 +22,6 @@ export const ShowAvatar: FC = () => {
         />
     }
     //Sets the custom avatar component if the guild icon is null or falsy value
-    return <Avatar name={"A B C"} sidebar />
+    return <Avatar name={"A B C"} className={className} />
 
 }

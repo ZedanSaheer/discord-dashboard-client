@@ -69,9 +69,9 @@ export const fetchChannels = async (context: GetServerSidePropsContext) => {
         }
     }
     try {
-        const { data: channel } = await axios.get<Channel[]>(`${API_URL}/guilds/${context.query.id}/channels`, { headers });
+        const { data: channels } = await axios.get<Channel[]>(`${API_URL}/guilds/${context.query.id}/channels`, { headers });
         //Returning the Channels data as props property
-        return { props: { channel } };
+        return { props: { channels } };
     } catch (error) {
         console.log(error);
         //Returns to login screen if error occurs

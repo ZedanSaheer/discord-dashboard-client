@@ -10,7 +10,7 @@ type Props = {
 
 export const GuildMenuItem: FC<Props> = ({ guild }) => {
     return <div className={styles.container}>
-        <ShowAvatar />
+        <ShowAvatar className="menu"/>
         <p>{guild.name}</p>
     </div>
 }

@@ -23,7 +23,7 @@ export const getFirstLetters = (word: string) => {
     return firstLetters;
 }
 
-export const isValueNullShowPlaceholder = (value: string | null | boolean | undefined) => {
+export const isValueNullShowPlaceholder = (value: string | null | boolean | undefined | number) => {
     //Returns a placeholder text if value is falsy
     if (!value) {
         return "No Information Yet"
