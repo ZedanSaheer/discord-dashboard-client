@@ -90,6 +90,9 @@ export const checkAuthStatus = async (context: GetServerSidePropsContext) => {
             redirect: { destination: '/menu' }
         }
     }
+    return {
+        redirect: { destination: '/' }
+    }
 }
 
 export const logout = () => {

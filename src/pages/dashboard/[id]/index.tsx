@@ -42,7 +42,7 @@ DashboardPage.getLayout = function (page: ReactElement) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     //SSR for guild data 
-    return fetchGuild(context);
+    return await fetchGuild(context);
 }
 
 export default DashboardPage;    

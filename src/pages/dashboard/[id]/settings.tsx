@@ -20,7 +20,7 @@ SettingsPage.getLayout = function (page: ReactElement) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    return fetchGuild(context);
+    return await fetchGuild(context);
 }
 
 export default SettingsPage;    

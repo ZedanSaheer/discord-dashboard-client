@@ -34,7 +34,7 @@ ChannelPage.getLayout = function (page: ReactElement) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
     //SSR for channel data based on guild (id)
-    return fetchChannels(context);
+    return await fetchChannels(context);
 }
 
 export default ChannelPage;    
